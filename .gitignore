@@ -1,0 +1,51 @@
+# Ejecutables y archivos compilados
+*.exe
+*.dll
+*.obj
+*.pdb
+
+# Archivos temporales
+*.tmp
+*.bak
+*.log
+*.cache
+
+# Configuraciones personales
+.vs/
+.vscode/
+*.local
+
+# Credenciales y secretos
+.env
+.env.*
+*.pem
+*.key
+
+# Archivos de conexión con posibles credenciales
+ConnectionIds.ini
+
+# Datos locales de DataFlex
+Data/*.dat
+Data/*.k*
+Data/*.hdr
+Data/*.vld
+Data/*.int
+
+# Archivos generados por compilación
+Programs/*.exe
+Programs/*.dbg
+
+# Conexión a base de datos
+Data/DFConnId.ini
+
+# Claves de autenticación
+AppSrc/LoginEncryptionKey.inc
+
+# Configuración personal de DataFlex Studio
+IdeSrc/*.dsk
+IdeSrc/*.mtd
+IdeSrc/Workspace.loc
+
+
+# Motor web proporcionado por DataFlex
+AppHtml/DfEngine/
