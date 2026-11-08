@@ -37,32 +37,14 @@ Object oZoomJugador is a cWebView
 
 
     Object oWebMainPanel is a cWebPanel
-        Set piColumnCount to 12
+        Set piColumnCount to 6
         WebSetResponsive piColumnCount rmMobile to 4
 
-        Object oligaID is a cWebForm
-            Entry_Item liga.ID
-            Set piColumnSpan to 2
-            Set piColumnIndex to 0
-            Set peLabelPosition to lpTop
-            Set psLabel to "ID"
-            Set pbPromptButton to True
-
-// ToDo: Fill in the from-child parent Select view object name for navigate forward
-//            WebRegisterPath ntNavigateForward oSelectView
-
-            Procedure OnPrompt
-                Send NavigatePath
-            End_Procedure
-        End_Object 
-
-        Object oligaNombre is a cWebForm
-            Entry_Item liga.Nombre
-            Set piColumnSpan to 12
-            Set piColumnIndex to 0
+        Object ojugadorNombre is a cWebForm
+            Entry_Item jugador.Nombre
+            Set piColumnSpan to 6
             Set peLabelPosition to lpTop
             Set psLabel to "Nombre"
-            Set pbPromptButton to True
 
 // ToDo: Fill in the from-child parent Select view object name for navigate forward
 //            WebRegisterPath ntNavigateForward oSelectView
@@ -72,12 +54,12 @@ Object oZoomJugador is a cWebView
             End_Procedure
         End_Object 
 
-        Object oligaPais is a cWebForm
-            Entry_Item liga.Pais
-            Set piColumnSpan to 9
+        Object ojugadorApellido is a cWebForm
+            Entry_Item jugador.Apellido
+            Set piColumnSpan to 6
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
-            Set psLabel to "Pais"
+            Set psLabel to "Apellido"
             Set pbPromptButton to True
 
 // ToDo: Fill in the from-child parent Select view object name for navigate forward
@@ -88,21 +70,30 @@ Object oZoomJugador is a cWebView
             End_Procedure
         End_Object 
 
-        Object oligaEquipos is a cWebForm
-            Entry_Item liga.Equipos
-            Set piColumnSpan to 2
+        Object ojugadorNacionalidad is a cWebForm
+            Entry_Item jugador.Nacionalidad
+            Set piColumnSpan to 6
+            Set piColumnIndex to 0
+            Set peLabelPosition to lpTop
+            Set psLabel to "Nacionalidad"
+            Set pbPromptButton to True
+
+// ToDo: Fill in the from-child parent Select view object name for navigate forward
+//            WebRegisterPath ntNavigateForward oSelectView
+
+            Procedure OnPrompt
+                Send NavigatePath
+            End_Procedure
+        End_Object 
+
+        Object ojugadorEquipoID is a cWebForm
+            Entry_Item jugador.EquipoID
+            Set piColumnSpan to 3
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "Equipos"
         End_Object 
 
-        Object oligaEquiposMax is a cWebForm
-            Entry_Item liga.EquiposMax
-            Set piColumnSpan to 2
-            Set piColumnIndex to 0
-            Set peLabelPosition to lpTop
-            Set psLabel to "EquiposMax"
-        End_Object 
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup
