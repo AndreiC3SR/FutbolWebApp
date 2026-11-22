@@ -8,6 +8,7 @@ Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebForm.pkg
 Use cWebButton.pkg
+Use cWebCombo.pkg
 
 Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
@@ -71,21 +72,13 @@ Object oZoomJugador is a cWebView
             End_Procedure
         End_Object 
 
-        Object ojugadorNacionalidad is a cWebForm
+        Object oJugadorNacionalidad is a cWebCombo
             Entry_Item jugador.Nacionalidad
-            Set piColumnSpan to 6
+            Set piColumnSpan to 8
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "Nacionalidad"
-            Set pbPromptButton to True
-
-// ToDo: Fill in the from-child parent Select view object name for navigate forward
-//            WebRegisterPath ntNavigateForward oSelectView
-
-            Procedure OnPrompt
-                Send NavigatePath
-            End_Procedure
-        End_Object 
+        End_Object
 
         Object ojugadorEquipoID is a cWebForm
             Entry_Item jugador.EquipoID

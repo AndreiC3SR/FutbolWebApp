@@ -8,6 +8,7 @@ Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebForm.pkg
 Use cWebButton.pkg
+Use cWebCombo.pkg
 
 Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
@@ -58,13 +59,13 @@ Object oZoomEntrenador is a cWebView
             Set psLabel to "Apellido"
         End_Object 
 
-        Object oentrenadorNacionalidad is a cWebForm
+        Object oentrenadorNacionalidad is a cWebCombo
             Entry_Item entrenador.Nacionalidad
             Set piColumnSpan to 8
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "Nacionalidad"
-        End_Object 
+        End_Object
 
         Object oequipoID is a cWebForm
             Entry_Item equipo.ID
@@ -154,6 +155,8 @@ Object oZoomEntrenador is a cWebView
     Procedure SetActionButtons
         tWebNavigateData NavigateData
         Boolean bHasRecord
+        Boolean bTieneEquipo
+        Get HasRecord of oequipo_DD to bTieneEquipo
         Handle hoDD
 
         Get Server to hoDD
@@ -165,6 +168,7 @@ Object oZoomEntrenador is a cWebView
         WebSet pbRender of oSaveBtn to False
         WebSet pbRender of oCancelChangesBtn to False
         WebSet pbRender of oDeleteBtn to False
+        WebSet pbRender of oDespedirEntrenador to (bHasRecord and bTieneEquipo)
 
         If (NavigateData.bReadOnly) Begin
             WebSet pbRender of oEditBtn to True
