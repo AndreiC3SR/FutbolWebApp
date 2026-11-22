@@ -7,6 +7,7 @@ Use cWebPanel.pkg
 Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebForm.pkg
+Use cWebButton.pkg
 
 Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
@@ -72,6 +73,8 @@ Object oZoomEntrenador is a cWebView
             Set peLabelPosition to lpTop
             Set psLabel to "EquipoID"
             Set pbPromptButton to True
+      
+        
 
 // ToDo: Fill in the from-child parent Select view object name for navigate forward
 //            WebRegisterPath ntNavigateForward oSelectView
@@ -80,6 +83,26 @@ Object oZoomEntrenador is a cWebView
                 Send NavigatePath
             End_Procedure
         End_Object 
+        
+        Object oDespedirEntrenador is a cWebButton
+            Set psCaption to "Despedir"
+            Set piColumnSpan to 2
+            Set piColumnIndex to 0
+        
+        Procedure OnClick
+            Boolean bExiste bTieneEquipo
+        
+            Get HasRecord of oentrenador_DD to bExiste
+            Get HasRecord of oequipo_DD to bTieneEquipo
+        
+            If (bExiste and bTieneEquipo) Begin
+                Send ChangeEditMode of oZoomEntrenador True
+                Send Request_ClearBindingTable of oequipoID
+                Send Request_Save of oZoomEntrenador
+            End
+        End_Procedure
+        End_Object
+
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup
@@ -124,6 +147,8 @@ Object oZoomEntrenador is a cWebView
             End_Procedure
 
         End_Object 
+        
+
     End_Object 
 
     Procedure SetActionButtons
